@@ -31,7 +31,7 @@ app.route('/api/subscription').post((req: Request, res: Response) => {
     SUBSCRIPTIONS.push(sub);
     console.log('Total subscriptions', SUBSCRIPTIONS.length);
   } catch (error) {
-    console.log('USER_SUBSCRIPTIONS.push(sub);', error);
+    console.log('SUBSCRIPTIONS', error);
   }
 
   res.status(200).json({ message: 'Subscription added successfully.' });
