@@ -22,28 +22,7 @@ export class AppComponent {
     this.image1 = { albumId: 0, thumbnailUrl: '', id: 0, title: '' };
   }
 
-  getImage(): void {
-    this.service.getPhoto().subscribe((res) => {
-      this.image1 = res;
-    });
-  }
-
-  getUser(): void {
-    this.service.getUser().subscribe((res) => {
-      console.log(res);
-      this.user1 = res;
-    });
-  }
-
-  onClearImage(): void {
-    this.image1 = { albumId: 0, thumbnailUrl: '', id: 0, title: '' };
-  }
-
-  onClearUser(): void {
-    this.user1 = { email: '', id: 0, name: '', username: '' };
-  }
-
-  async subscribeToNotifications() {
+  async addSubscription() {
     try {
       const sub = await this.swPush.requestSubscription({
         serverPublicKey: this.VAPID_PUBLIC_KEY,
@@ -66,11 +45,32 @@ export class AppComponent {
     }
   }
 
-  sendNewsletter() {
+  sendNotification() {
     const newsletter: Partial<Notification> = {
       title: 'Accenture News',
       body: 'Angular Rocks! 👍',
     };
     this.service.sentNotification(newsletter).subscribe();
+  }
+
+  getImage(): void {
+    this.service.getPhoto().subscribe((res) => {
+      this.image1 = res;
+    });
+  }
+
+  getUser(): void {
+    this.service.getUser().subscribe((res) => {
+      console.log(res);
+      this.user1 = res;
+    });
+  }
+
+  onClearImage(): void {
+    this.image1 = { albumId: 0, thumbnailUrl: '', id: 0, title: '' };
+  }
+
+  onClearUser(): void {
+    this.user1 = { email: '', id: 0, name: '', username: '' };
   }
 }
