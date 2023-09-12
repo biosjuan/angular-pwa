@@ -5,18 +5,29 @@
       <th>image or username</th>
       <th>Calls</th>
       <th>Delete</th>
+      <th>Notification</th>
     </tr>
     <tr>
       <td>{{ image1.title }}</td>
       <td><img [src]="image1.thumbnailUrl" alt="" /></td>
       <td><button class="button" (click)="getImage()">Cached Call</button></td>
       <td><button class="button" (click)="onClearImage()">Clear</button></td>
+      <td>
+        <button class="button" (click)="subscribeToNotifications()">
+          Subscribe
+        </button>
+      </td>
     </tr>
     <tr>
       <td>{{ user1.name }}</td>
       <td>{{ user1.username }}</td>
       <td><button class="button" (click)="getUser()">Uncached Call</button></td>
       <td><button class="button" (click)="onClearUser()">Clear</button></td>
+      <td>
+        <button class="button" (click)="sendNewsletter()">
+          Send Notification
+        </button>
+      </td>
     </tr>
   </table>
 </div>
